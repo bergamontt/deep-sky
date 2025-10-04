@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3232px" height="3232px" viewBox="0 0 3232 3232" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 1616 606 L 2121 505 L 2222 0 L 2424 0 L 2525 505 L 3030 606 L 3030 808 L 2525 909 L 2424 1414 L 2222 1414 L 2121 909 L 1616 808 Z M 1616 606 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 0 2222 L 0 2020 L 808 1818 L 1010 1010 L 1212 1010 L 1414 1818 L 2222 2020 L 2222 2222 L 1414 2424 L 1212 3232 L 1010 3232 L 808 2424 Z M 0 2222 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 202 404 L 505 101 L 808 404 L 505 707 Z M 202 404 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 3030 2828 L 2626 2424 L 2222 2828 L 2626 3232 Z M 3030 2828 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 3030 2020 C 3141.566406 2020 3232 1929.5625 3232 1818 C 3232 1706.4375 3141.566406 1616 3030 1616 C 2918.433594 1616 2828 1706.4375 2828 1818 C 2828 1929.5625 2918.433594 2020 3030 2020 Z M 3030 2020 "/>
+</g>
+</svg>
