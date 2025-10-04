@@ -1,15 +1,14 @@
-import { Center, Fieldset, TextInput, PasswordInput } from "@mantine/core";
-import { Title, Text, Button } from "@mantine/core";
+import { Button, Center, Fieldset, PasswordInput, Text, TextInput, Title } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 import GalaxyWrapper from "../components/common/GalaxyWrapper";
+import '../styles/pages/SigninPage.css'
 import AuthAnchor from "../styles/common/AuthAnchor";
-import '../styles/pages/LoginPage.css'
 
-function LoginPage() {
+function SignupPage() {
     const navigate = useNavigate();
     return(
         <GalaxyWrapper>
-            <Center className="login-page-container">
+            <Center className="sign-page-container">
                 <Fieldset
                     radius="md" mt="md" p="2em"
                     bg='#242424' bd="1px solid #6F6F71"
@@ -18,7 +17,9 @@ function LoginPage() {
                         Deep Sky Account
                     </Title>
                     <Text size="sm" mt="xs" c="white" >
-                        Log into your account to manage your patterns <br/> and saved points.
+                        Create an account to manage your patterns
+                        &nbsp; &nbsp; &nbsp;
+                        <br/> and saved points.
                     </Text>
                     <TextInput 
                         label='Username'
@@ -47,9 +48,9 @@ function LoginPage() {
                         Return
                     </Button>
                     <AuthAnchor
-                        desc="New here?"
-                        label="Create an account"
-                        link="/signup"
+                        desc="Already have an account?"
+                        label="Log in"
+                        link="/login"
                     />
                 </Fieldset>
             </Center>
@@ -57,4 +58,4 @@ function LoginPage() {
     );
 }
 
-export default LoginPage
+export default SignupPage
