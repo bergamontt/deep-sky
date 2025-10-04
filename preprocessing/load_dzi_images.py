@@ -24,7 +24,7 @@ def download_images(urls, img_folder="img"):
 
     return downloaded_images
 
-def create_preview(image_path, preview_folder='preview', max_size=300, quality=90):
+def create_preview(image_path, preview_folder='preview', max_size=500, quality=90):
     Path(preview_folder).mkdir(exist_ok=True)
 
     image = pyvips.Image.new_from_file(image_path, access='sequential')
