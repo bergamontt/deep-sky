@@ -1,12 +1,12 @@
 import { Stack, Image, Title, Text } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
+import type { ImageT } from "../../models/Image";
 
 type ImagePreviewProps = {
-    preview: string
-    id?: string
+    image: ImageT;
 }
 
-function ImagePreview({preview, id='foo'} : ImagePreviewProps) {
+function ImagePreview({image} : ImagePreviewProps) {
     const navigate = useNavigate();
     return(
         <Stack
@@ -14,22 +14,20 @@ function ImagePreview({preview, id='foo'} : ImagePreviewProps) {
             bd='1px solid #444445ff' bg="#333333"
         >
             <Image
-                src={preview} radius="md"
-                onClick={() => {navigate('/image/' + id)}}
+                src={image?.previewLink} radius="md"
+                onClick={() => {navigate('/image/' + image?.id)}}
                 h={300}
             />
             <Stack gap={0}>
                 <Title order={3} c="white">
-                    Carina Nebula
+                    {image?.name}
                 </Title>
                 <Text c="white">
-                    Release: 24 April 2007, 15:00
+                    Release: {image?.dateTaken.toString()}
                 </Text>
             </Stack>
             <Text c="#c3c3c3ff">
-                The fantasy-like landscape of the nebula is sculpted by the action
-                of outflowing winds and scorching ultraviolet radiation from
-                the monster stars that inhabit this inferno.
+                {image?.description}
             </Text>
         </Stack>
     );

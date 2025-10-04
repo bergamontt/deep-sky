@@ -1,5 +1,6 @@
 .idea
 /backend/.idea
+/backend/target
 /preprocessing/.idea
 /preprocessing/img
 /preprocessing/storage
