@@ -13,7 +13,7 @@ const ImageViewer: React.FC = () => {
             zoomPerClick: 2,
             zoomPerScroll: 1.2, 
             gestureSettingsMouse: { scrollToZoom: true }, 
-            maxZoomLevel: 28
+            maxZoomLevel: 26
         });
 
         return () => {

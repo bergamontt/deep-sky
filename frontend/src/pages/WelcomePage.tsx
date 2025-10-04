@@ -1,4 +1,4 @@
-import { Center, Group, Stack, Title, Button } from "@mantine/core";
+import { Center, Group, Stack, Title, Button, Text } from "@mantine/core";
 import { useNavigate } from "react-router";
 import Galaxy  from "../components/backgrounds/Galaxy"
 import '../styles/pages/WelcomePage.css'
@@ -19,7 +19,9 @@ function WelcomePage() {
                     <Title size="2em" c="white">
                         Deep Sky
                     </Title>
-                    Bringing the universe <br /> down to Earth
+                    <Text size="1em" fw="bold">
+                        Bringing the universe down to Earth
+                    </Text>
                     <Group grow pt="0.6em">
                         <Button
                             variant="white" size="lg" radius="xl" color="black"
