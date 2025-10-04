@@ -24,6 +24,23 @@ def download_images(urls, img_folder="img"):
 
     return downloaded_images
 
+def create_preview(image_path, preview_folder='preview', max_size=300, quality=90):
+    Path(preview_folder).mkdir(exist_ok=True)
+
+    image = pyvips.Image.new_from_file(image_path, access='sequential')
+
+    scale = max_size / min(image.width, image.height)
+    scaled_image = image.resize(scale)
+
+    left = (scaled_image.width - max_size) // 2
+    top = (scaled_image.height - max_size) // 2
+    thumbnail = scaled_image.extract_area(left, top, max_size, max_size)
+
+    file_name = Path(image_path).stem + '.jpg'
+    preview_path = os.path.join(preview_folder, file_name)
+
+    thumbnail.jpegsave(preview_path, Q=quality)
+
 def valid_file(file):
     valid_extensions = {".jpg", ".jpeg", ".tiff", ".tif"}
     return file.is_file() and file.suffix in valid_extensions
@@ -37,6 +54,7 @@ def convert_to_dzi(input_folder="img", output_folder="storage"):
         if not valid_file(file_path):
             continue
 
+        create_preview(str(file_path))
         file_name = file_path.stem
 
         image_output_dir = output_path / file_name

@@ -3,5 +3,6 @@
 /preprocessing/.idea
 /preprocessing/img
 /preprocessing/storage
+/preprocessing/preview
 frontend/node_modules
 frontend/public/storage

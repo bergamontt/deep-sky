@@ -9,11 +9,11 @@ const ImageViewer: React.FC = () => {
 
         const viewer = OpenSeadragon({
             element: viewerRef.current,
-            tileSources: '/storage/heic0506a/heic0506a.dzi', 
+            tileSources: '/storage/heic0707a/heic0707a.dzi', 
             zoomPerClick: 2,
             zoomPerScroll: 1.2, 
             gestureSettingsMouse: { scrollToZoom: true }, 
-            maxZoomLevel: 26
+            maxZoomLevel: 24
         });
 
         return () => {
