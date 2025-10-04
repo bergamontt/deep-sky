@@ -4,10 +4,18 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
 import java.util.Date;
 import java.util.UUID;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "Image")
 public class Image {
@@ -28,9 +36,9 @@ public class Image {
     private String previewLink;
 
     @PastOrPresent
-    @Column(name = "date")
+    @Column(name = "date_taken")
     @Temporal(TemporalType.DATE)
-    private Date date;
+    private Date dateTaken;
 
     @Size(max = 100)
     @Column(name = "name", length = 100)
