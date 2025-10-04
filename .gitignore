@@ -2,4 +2,6 @@
 /backend/.idea
 /preprocessing/.idea
 /preprocessing/img
+/preprocessing/storage
 frontend/node_modules
+frontend/public/storage

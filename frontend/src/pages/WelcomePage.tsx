@@ -1,8 +1,10 @@
 import { Center, Group, Stack, Title, Button } from "@mantine/core";
+import { useNavigate } from "react-router";
 import Galaxy  from "../components/backgrounds/Galaxy"
 import '../styles/pages/WelcomePage.css'
 
 function WelcomePage() {
+    const navigate = useNavigate();
     return(
         <div
             style={{
@@ -19,10 +21,16 @@ function WelcomePage() {
                     </Title>
                     Bringing the universe <br /> down to Earth
                     <Group grow pt="0.6em">
-                        <Button variant="white" size="lg" radius="xl" color="black">
+                        <Button
+                            variant="white" size="lg" radius="xl" color="black"
+                            onClick={() => {navigate('/images')}}
+                        >
                             Start
                         </Button>
-                        <Button variant="light" size="lg" radius="xl"  color="gray">
+                        <Button
+                            variant="light" size="lg" radius="xl"  color="gray"
+                            onClick={() => {navigate('/login')}}
+                        >
                             Login
                         </Button>
                     </Group>

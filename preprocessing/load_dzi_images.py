@@ -21,7 +21,7 @@ def convert_to_dzi(input_folder, output_folder="storage"):
 
         dzi_output_path = str(image_output_dir / file_name)
         image = pyvips.Image.new_from_file(str(file_path), access='sequential')
-        image.dzsave(dzi_output_path, tile_size=256, overlap=1, q=90)
+        image.dzsave(dzi_output_path, tile_size=256, overlap=1)
 
 
 if __name__ == "__main__":
