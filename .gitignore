@@ -1,3 +1,5 @@
 .idea
 /backend/.idea
+/preprocessing/.idea
+/preprocessing/img
 frontend/node_modules
