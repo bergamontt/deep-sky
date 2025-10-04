@@ -3,12 +3,20 @@ package ua.deepsky.backend.feature.label;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
 import ua.deepsky.backend.feature.collection.Collection;
 import ua.deepsky.backend.feature.patch.Patch;
 
 import java.util.UUID;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "Label")
 public class Label {
