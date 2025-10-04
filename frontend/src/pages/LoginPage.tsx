@@ -35,7 +35,7 @@ function LoginPage() {
                     <Button
                         variant="white" size="md"
                         radius="xl" mt="xl" fullWidth c="black"
-                        onClick={() => {navigate('/images')}}
+                        onClick={() => {navigate('/image')}}
                     >
                         Continue
                     </Button>

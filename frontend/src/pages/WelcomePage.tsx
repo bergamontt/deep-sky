@@ -18,7 +18,7 @@ function WelcomePage() {
                     <Group grow pt="0.6em">
                         <Button
                             variant="white" size="lg" radius="sm" color="black"
-                            onClick={() => {navigate('/images')}}
+                            onClick={() => {navigate('/image')}}
                         >
                             Start
                         </Button>

@@ -15,7 +15,7 @@ function ImagePreview({preview, id='foo'} : ImagePreviewProps) {
         >
             <Image
                 src={preview} radius="md"
-                onClick={() => {navigate(id)}}
+                onClick={() => {navigate('/image/' + id)}}
                 h={300}
             />
             <Stack gap={0}>
