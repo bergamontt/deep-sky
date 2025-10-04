@@ -1,19 +1,12 @@
 import { Center, Fieldset, TextInput, PasswordInput, Title, Text, Button } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
-import Galaxy from "../components/backgrounds/Galaxy";
+import GalaxyWrapper from "../components/common/GalaxyWrapper";
 import '../styles/pages/LoginPage.css'
 
 function LoginPage() {
     const navigate = useNavigate();
     return(
-        <div
-            style={{
-                width: '100%',
-                height: '100vh',
-                background: 'black',
-                position: 'fixed'
-            }}
-        >
+        <GalaxyWrapper>
             <Center className="login-page-container">
                 <Fieldset
                     radius="md" mt="md" p="2em"
@@ -38,24 +31,22 @@ function LoginPage() {
                         withAsterisk c="white"
                     />
                     <Button
-                        variant="outline" size="md"
-                        radius="xl" mt="xl" c="white"
-                        bd="1px solid #6F6F71" fullWidth
+                        variant="white" size="md"
+                        radius="xl" mt="xl" fullWidth c="black"
                         onClick={() => {navigate('/images')}}
                     >
                         Continue
                     </Button>
+                    <Button
+                        variant="outline" size="md" radius="xl"
+                        mt="md" color="white" fullWidth
+                        onClick={() => {navigate('/')}}
+                    >
+                        Return
+                    </Button>
                 </Fieldset>
             </Center>
-            <Galaxy 
-                mouseRepulsion={false}
-                mouseInteraction={false}
-                density={1}
-                glowIntensity={0.3}
-                saturation={0.5}
-                hueShift={140}
-            />
-        </div>
+        </GalaxyWrapper>
     );
 }
 

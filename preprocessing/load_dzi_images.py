@@ -52,7 +52,8 @@ if __name__ == "__main__":
         "https://esahubble.org/media/archives/images/original/heic0707a.tif",
         "https://esahubble.org/media/archives/images/original/heic0604a.tif",
         "https://esahubble.org/media/archives/images/original/heic1302a.tif",
-        "https://esahubble.org/media/archives/images/original/heic0506a.tif"
+        "https://esahubble.org/media/archives/images/original/heic0506a.tif",
+        "https://esahubble.org/media/archives/images/publicationtiff10k/heic1502a.tif"
     ]
 
     download_images(default_urls)

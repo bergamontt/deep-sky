@@ -1,19 +1,12 @@
 import { Center, Group, Stack, Title, Button, Text } from "@mantine/core";
 import { useNavigate } from "react-router";
-import Galaxy  from "../components/backgrounds/Galaxy"
+import GalaxyWrapper from "../components/common/GalaxyWrapper";
 import '../styles/pages/WelcomePage.css'
 
 function WelcomePage() {
     const navigate = useNavigate();
     return(
-        <div
-            style={{
-                width: '100%',
-                height: '100vh',
-                background: 'black',
-                position: 'fixed'
-            }}
-        >
+        <GalaxyWrapper>
             <Center className="annotation-container">
                 <Stack>
                     <Title size="2em" c="white">
@@ -24,13 +17,13 @@ function WelcomePage() {
                     </Text>
                     <Group grow pt="0.6em">
                         <Button
-                            variant="white" size="lg" radius="xl" color="black"
+                            variant="white" size="lg" radius="sm" color="black"
                             onClick={() => {navigate('/images')}}
                         >
                             Start
                         </Button>
                         <Button
-                            variant="light" size="lg" radius="xl"  color="gray"
+                            variant="outline" size="lg" radius="sm" color="white"
                             onClick={() => {navigate('/login')}}
                         >
                             Login
@@ -38,15 +31,7 @@ function WelcomePage() {
                     </Group>
                 </Stack>
             </Center>
-            <Galaxy 
-                mouseRepulsion={false}
-                mouseInteraction={false}
-                density={1}
-                glowIntensity={0.3}
-                saturation={0.5}
-                hueShift={140}
-            />
-        </div>
+        </GalaxyWrapper>
     );
 }
 
