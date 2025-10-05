@@ -41,8 +41,9 @@ function SignupPage() {
                 title: 'Success!',
                 message: 'Your account has been created.',
                 color: 'green',
+                autoClose: 1000,
+                onClose: () => navigate('/image'),
             });
-            navigate('/image');
         } catch (err) {
             notifications.show({
                 title: 'Error',
@@ -50,7 +51,7 @@ function SignupPage() {
                 color: 'red',
             });
         }
-    }, [username, password, navigate]);
+    }, [username, password]);
 
     return(
         <GalaxyWrapper>

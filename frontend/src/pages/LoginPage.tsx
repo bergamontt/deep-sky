@@ -3,10 +3,57 @@ import { Title, Text, Button } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 import GalaxyWrapper from "../components/common/GalaxyWrapper";
 import AuthAnchor from "../styles/common/AuthAnchor";
+import { useCallback, useState } from "react";
+import { notifications } from "@mantine/notifications";
+import { login } from "../services/authService";
 import '../styles/pages/LoginPage.css'
 
 function LoginPage() {
     const navigate = useNavigate();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const validateInput = useCallback(() => {
+        if (username.length < 5) {
+            notifications.show({
+                title: 'Error',
+                message: 'Username must be at least 5 characters long',
+                color: 'red',
+            });
+            return false;
+        }
+        if (password.length < 7) {
+            notifications.show({
+                title: 'Error',
+                message: 'Password must be at least 7 characters long',
+                color: 'red',
+            });
+            return false;
+        }
+        return true;
+    }, [username, password]);
+
+    const handleLogin = useCallback(async () => {
+        if (!validateInput()) return;
+        try {
+            const response = await login({ username, password });
+            localStorage.setItem('token', response.token);
+            notifications.show({
+                title: 'Success!',
+                message: 'You have successfully logged in.',
+                color: 'green',
+                autoClose: 1000,
+                onClose: () => navigate('/image'),
+            });
+        } catch (err) {
+            notifications.show({
+                title: 'Error',
+                message: 'Login failed. Check your username or password.',
+                color: 'red',
+            });
+        }
+    }, [username, password]);
+
     return(
         <GalaxyWrapper>
             <Center className="login-page-container">
@@ -25,17 +72,21 @@ function LoginPage() {
                         placeholder='Your username'
                         size="md" mt="lg" radius="sm"
                         withAsterisk c="white"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                     <PasswordInput
                         label='Password'
                         placeholder='Your password'
                         mt="md" size="md" radius="sm"
                         withAsterisk c="white"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     <Button
                         variant="white" size="md"
                         radius="xl" mt="xl" fullWidth c="black"
-                        onClick={() => {navigate('/image')}}
+                        onClick={handleLogin}
                     >
                         Continue
                     </Button>
