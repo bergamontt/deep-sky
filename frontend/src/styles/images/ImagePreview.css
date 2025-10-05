@@ -1,0 +1,17 @@
+.image-preview {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.image-preview:hover {
+    transform: scale(1.03);
+}
+
+.image-preview-container {
+    transition: all 0.3s ease; 
+}
+
+.image-preview-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}

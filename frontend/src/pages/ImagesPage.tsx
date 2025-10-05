@@ -1,4 +1,4 @@
-import { Title, Text, Stack, Pagination, Flex } from "@mantine/core";
+import { Title, Text, Stack, Pagination, Flex, Center } from "@mantine/core";
 import PageWrapper from "../components/common/PageWrapper";
 import { useMemo, useState } from "react";
 import useFetch from "../hooks/useFetch";
@@ -23,7 +23,10 @@ function ImagesPage() {
                     Browse hundreds of beautiful high-quality nebula images
                 </Text>
            </Stack>
-            <Flex p="1em" bdrs="10px" bg='#242424' h="100%">
+            <Flex
+                p="1em" bdrs="10px" h="100%" wrap="wrap"
+                gap="md" justify="center" bg='#242424'
+            >
                 {pages &&
                     pages.content.map((image) => (
                         <ImagePreview
@@ -31,12 +34,14 @@ function ImagesPage() {
                         />
                     ))}
             </Flex>
-            <Pagination
-                total={pages?.page.totalPages || 1}
-                value={page}
-                onChange={setPage}
-                color="gray"
-            />
+            <Center>
+                <Pagination
+                    total={pages?.page.totalPages || 1}
+                    value={page}
+                    onChange={setPage}
+                    color="gray"
+                />
+            </Center>
         </PageWrapper>
     );
 }
