@@ -5,6 +5,7 @@ import java.util.UUID;
 
 public interface AppUserService {
     AppUserResponseDto getById(UUID id);
+    AppUserResponseDto getByUsername(String username);
     List<AppUserResponseDto> getAll();
     AppUserResponseDto create(AppUserRequestDto dto);
     void delete(UUID id);

@@ -21,6 +21,12 @@ public class AppUserServiceImpl implements AppUserService {
     }
 
     @Override
+    public AppUserResponseDto getByUsername(String username) {
+        return appUserResponseMapper.toDto(appUserRepository.findByUsername(username)
+                .orElseThrow(() -> new EntityNotFoundException("User not found")));
+    }
+
+    @Override
     public List<AppUserResponseDto> getAll() {
         return appUserRepository.findAll().stream()
                 .map(appUserResponseMapper::toDto)

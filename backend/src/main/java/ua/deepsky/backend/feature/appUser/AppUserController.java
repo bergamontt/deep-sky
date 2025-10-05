@@ -18,6 +18,11 @@ public class AppUserController {
         return appUserService.getById(id);
     }
 
+    @GetMapping("/username/{username}")
+    public AppUserResponseDto getByUsername(@PathVariable String username) {
+        return appUserService.getByUsername(username);
+    }
+
     @GetMapping
     public List<AppUserResponseDto> getAll() {
         return appUserService.getAll();
