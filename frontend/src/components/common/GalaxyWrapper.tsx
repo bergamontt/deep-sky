@@ -1,11 +1,11 @@
-import type { ReactNode } from "react";
+import { memo, type ReactNode } from "react";
 import Galaxy from "../backgrounds/Galaxy";
 
 type PageWrapperProps = {
     children?: ReactNode;
 };
 
-function GalaxyWrapper({children} : PageWrapperProps) {
+const GalaxyWrapper = memo(({ children }: PageWrapperProps) => {
     return(
         <div
             style={{
@@ -26,6 +26,6 @@ function GalaxyWrapper({children} : PageWrapperProps) {
             />
         </div>
     );
-}
+});
 
 export default GalaxyWrapper

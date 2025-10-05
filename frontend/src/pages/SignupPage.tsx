@@ -3,9 +3,55 @@ import { useNavigate } from "react-router-dom";
 import GalaxyWrapper from "../components/common/GalaxyWrapper";
 import '../styles/pages/SigninPage.css'
 import AuthAnchor from "../styles/common/AuthAnchor";
+import { useCallback, useState } from "react";
+import { notifications } from "@mantine/notifications";
+import { register } from "../services/authService";
 
 function SignupPage() {
     const navigate = useNavigate();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const validateInput = useCallback(() => {
+        if (username.length < 5) {
+            notifications.show({
+                title: 'Error',
+                message: 'Username must be at least 5 characters long',
+                color: 'red',
+            });
+            return false;
+        }
+        if (password.length < 7) {
+            notifications.show({
+                title: 'Error',
+                message: 'Password must be at least 7 characters long',
+                color: 'red',
+            });
+            return false;
+        }
+        return true;
+    }, [username, password]);
+
+    const handleRegister = useCallback(async () => {
+        if (!validateInput()) return;
+        try {
+            const response = await register({ username, password });
+            localStorage.setItem('token', response.token);
+            notifications.show({
+                title: 'Success!',
+                message: 'Your account has been created.',
+                color: 'green',
+            });
+            navigate('/image');
+        } catch (err) {
+            notifications.show({
+                title: 'Error',
+                message: 'Registration failed. Username may be taken.',
+                color: 'red',
+            });
+        }
+    }, [username, password, navigate]);
+
     return(
         <GalaxyWrapper>
             <Center className="sign-page-container">
@@ -26,19 +72,23 @@ function SignupPage() {
                         placeholder='Your username'
                         size="md" mt="lg" radius="sm"
                         withAsterisk c="white"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                     <PasswordInput
                         label='Password'
                         placeholder='Your password'
                         mt="md" size="md" radius="sm"
                         withAsterisk c="white"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                     <Button
                         variant="white" size="md"
                         radius="xl" mt="xl" fullWidth c="black"
-                        onClick={() => {navigate('/image')}}
+                        onClick={handleRegister}
                     >
-                        Continue
+                        Register
                     </Button>
                     <Button
                         variant="outline" size="md" radius="xl"

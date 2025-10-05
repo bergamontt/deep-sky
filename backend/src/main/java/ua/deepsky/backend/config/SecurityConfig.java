@@ -34,7 +34,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers(HttpMethod.POST,"/user").permitAll()
-                        .requestMatchers("/image").permitAll()
+                        .requestMatchers(HttpMethod.GET,"/image/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .userDetailsService(appUserDetailsService)
