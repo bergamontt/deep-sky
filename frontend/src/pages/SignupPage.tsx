@@ -6,11 +6,13 @@ import AuthAnchor from "../styles/common/AuthAnchor";
 import { useCallback, useState } from "react";
 import { notifications } from "@mantine/notifications";
 import { register } from "../services/authService";
+import { useAuthStore } from "../hooks/authStore";
 
 function SignupPage() {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const { setToken } = useAuthStore();
 
     const validateInput = useCallback(() => {
         if (username.length < 5) {
@@ -36,7 +38,7 @@ function SignupPage() {
         if (!validateInput()) return;
         try {
             const response = await register({ username, password });
-            localStorage.setItem('token', response.token);
+            setToken(response.token);
             notifications.show({
                 title: 'Success!',
                 message: 'Your account has been created.',
@@ -53,7 +55,7 @@ function SignupPage() {
         }
     }, [username, password]);
 
-    return(
+    return (
         <GalaxyWrapper>
             <Center className="sign-page-container">
                 <Fieldset
@@ -66,9 +68,9 @@ function SignupPage() {
                     <Text size="sm" mt="xs" c="white" >
                         Create an account to manage your patterns
                         &nbsp; &nbsp; &nbsp;
-                        <br/> and saved points.
+                        <br /> and saved points.
                     </Text>
-                    <TextInput 
+                    <TextInput
                         label='Username'
                         placeholder='Your username'
                         size="md" mt="lg" radius="sm"
@@ -94,7 +96,7 @@ function SignupPage() {
                     <Button
                         variant="outline" size="md" radius="xl"
                         mt="sm" color="white" fullWidth
-                        onClick={() => {navigate('/')}}
+                        onClick={() => { navigate('/') }}
                     >
                         Return
                     </Button>

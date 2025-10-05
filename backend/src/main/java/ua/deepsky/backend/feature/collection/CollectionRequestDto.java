@@ -14,10 +14,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class CollectionRequestDto {
-    @NotBlank
+    @NotNull
     private UUID appUserId;
 
-    @NotBlank
+    @NotNull
     private UUID imageId;
 
     @NotNull

@@ -14,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class PinpointRequestDto {
-    @NotBlank
+    @NotNull
     private UUID collectionId;
 
     private String name;

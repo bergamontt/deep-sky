@@ -6,7 +6,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,8 +29,10 @@ public class CollectionServiceImpl implements CollectionService {
     }
 
     @Override
-    public Page<CollectionResponseDto> getAllOfUser(UUID userId, Pageable pageable) {
-        return null;
+    public List<CollectionResponseDto> getAllOfUser(UUID userId) {
+        return collectionRepository.findByAppUserId(userId).stream()
+                .map(collectionResponseMapper::toDto)
+                .toList();
     }
 
     @Override

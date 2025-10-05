@@ -2,7 +2,7 @@ import { Title, Text, Stack, Pagination, Flex, Center, ActionIcon, Menu } from "
 import PageWrapper from "../components/common/PageWrapper";
 import { useMemo, useState } from "react";
 import useFetch from "../hooks/useFetch";
-import { getImages } from "../services/ImageService";
+import { getImages } from "../services/imageService";
 import ImagePreview from "../components/images/ImagePreview";
 import Icon from "../components/common/Icon";
 import userProfile from '../assets/userProfile.svg'

@@ -7,11 +7,13 @@ import { useCallback, useState } from "react";
 import { notifications } from "@mantine/notifications";
 import { login } from "../services/authService";
 import '../styles/pages/LoginPage.css'
+import { useAuthStore } from "../hooks/authStore";
 
 function LoginPage() {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const { setToken } = useAuthStore();
 
     const validateInput = useCallback(() => {
         if (username.length < 5) {
@@ -37,7 +39,7 @@ function LoginPage() {
         if (!validateInput()) return;
         try {
             const response = await login({ username, password });
-            localStorage.setItem('token', response.token);
+            setToken(response.token);
             notifications.show({
                 title: 'Success!',
                 message: 'You have successfully logged in.',
@@ -54,7 +56,7 @@ function LoginPage() {
         }
     }, [username, password]);
 
-    return(
+    return (
         <GalaxyWrapper>
             <Center className="login-page-container">
                 <Fieldset
@@ -65,9 +67,9 @@ function LoginPage() {
                         Deep Sky Account
                     </Title>
                     <Text size="sm" mt="xs" c="white" >
-                        Log into your account to manage your patterns <br/> and saved points.
+                        Log into your account to manage your patterns <br /> and saved points.
                     </Text>
-                    <TextInput 
+                    <TextInput
                         label='Username'
                         placeholder='Your username'
                         size="md" mt="lg" radius="sm"
@@ -93,7 +95,7 @@ function LoginPage() {
                     <Button
                         variant="outline" size="md" radius="xl"
                         mt="sm" color="white" fullWidth
-                        onClick={() => {navigate('/')}}
+                        onClick={() => { navigate('/') }}
                     >
                         Return
                     </Button>

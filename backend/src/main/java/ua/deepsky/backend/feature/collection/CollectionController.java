@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -25,8 +26,8 @@ public class CollectionController {
     }
 
     @GetMapping("/user/{userId}")
-    public Page<CollectionResponseDto> getAllOfUser(@PathVariable UUID userId, Pageable pageable) {
-        return collectionService.getAllOfUser(userId, pageable);
+    public List<CollectionResponseDto> getAllOfUser(@PathVariable UUID userId) {
+        return collectionService.getAllOfUser(userId);
     }
 
     @PostMapping

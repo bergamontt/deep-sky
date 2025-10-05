@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import ImageViewer from "../components/common/ImageViewer";
 import { Stack } from "@mantine/core";
 import ImageOverlay from "../components/images/ImageOverlay";
-import { getImage } from "../services/ImageService";
+import { getImage } from "../services/imageService";
 import useFetch from "../hooks/useFetch";
 import { useState } from "react";
 
@@ -14,7 +14,7 @@ function ImagePage() {
         return <></>;
     return(
         <Stack gap={0}>
-            <ImageOverlay viewer={viewer} />
+            <ImageOverlay viewer={viewer} image={image}/>
             <ImageViewer src={image.link} setViewer={setViewer} /> 
         </Stack>       
     );
