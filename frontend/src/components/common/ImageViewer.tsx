@@ -2,10 +2,11 @@ import React, { useRef, useEffect } from 'react';
 import OpenSeadragon from 'openseadragon';
 
 type ImageViewerProps = {
-    src: string
+    src: string;
+    setViewer: (viewer: OpenSeadragon.Viewer) => void;
 };
 
-const ImageViewer: React.FC<ImageViewerProps> = ({src}) => {
+const ImageViewer: React.FC<ImageViewerProps> = ({src, setViewer}) => {
     const viewerRef = useRef<HTMLDivElement | null>(null);
     const viewerInstance = useRef<OpenSeadragon.Viewer | null>(null);
 
@@ -24,6 +25,7 @@ const ImageViewer: React.FC<ImageViewerProps> = ({src}) => {
         });
         
         viewerInstance.current = viewer;
+        setViewer(viewer);
 
         return () => {
             viewer.destroy(); 

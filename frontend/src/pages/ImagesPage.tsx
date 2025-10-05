@@ -15,7 +15,7 @@ function ImagesPage() {
     );
     return(
         <PageWrapper color='#111111ff'>
-           <Stack gap="0.2em">
+            <Stack gap="0.2em">
                 <Title c="white">
                     Available Images
                 </Title>
