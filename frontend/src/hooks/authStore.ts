@@ -4,9 +4,10 @@ import { useUserStore } from "./userStore";
 
 const tokenKey = "jwt_deep_sky";
 
-interface AuthStore{
+interface AuthStore {
     token: string | null,
     setToken: (token: string) => void,
+    removeToken: () => void,
     loadingAuth: boolean,
     isAuthenticated: boolean,
     currentUsername: string | null
@@ -60,7 +61,7 @@ function storeToken(token: string) {
         localStorage.setItem(tokenKey, token);
 }
 
-function deleteToken() {
+export function deleteToken() {
     localStorage.removeItem(tokenKey);
 }
 
@@ -102,6 +103,11 @@ export function useAuthStore(): AuthStore {
         updateStateFromToken(getValidToken());
     }
 
+    const removeToken = () => {
+        deleteToken();
+        updateStateFromToken(null);
+    }
+
     useEffect(() => {
         const syncToken = () => {
             setLoadingAuth(true);
@@ -119,5 +125,5 @@ export function useAuthStore(): AuthStore {
         }
     }, []);
 
-    return {token, setToken, loadingAuth, isAuthenticated, currentUsername};
+    return { token, setToken, removeToken, loadingAuth, isAuthenticated, currentUsername };
 }

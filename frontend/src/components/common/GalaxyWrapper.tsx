@@ -5,7 +5,6 @@ type PageWrapperProps = {
     children?: ReactNode;
 };
 
-
 const GalaxyWrapper = memo(({ children }: PageWrapperProps) => {
     const galaxy = useMemo(() => (
         <Galaxy

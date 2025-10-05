@@ -2,7 +2,6 @@ import { create } from "zustand";
 import type { User } from "../models/User";
 import { getUserByUsername } from "../services/userService";
 
-
 interface UserStore {
     user: User | null;
     loadingUser: boolean;
